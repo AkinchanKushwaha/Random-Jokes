@@ -1,5 +1,8 @@
 <resources>
     <string name="app_name">Jokes</string>
-    <string name="randomjokes_exe">RandomJokes.exe</string>
-    <string name="new_joke">New Joke</string>
+    <string name="lets_start_laughing">Lets Start Laughing</string>
+    <string name="share">Share</string>
+    <string name="dad_jokes">Dad Jokes</string>
+    <string name="next_joke">Next Joke</string>
+    <string name="laughing_persom">laughing persom</string>
 </resources>
