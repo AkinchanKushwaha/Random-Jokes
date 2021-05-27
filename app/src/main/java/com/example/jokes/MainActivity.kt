@@ -1,11 +1,11 @@
 package com.example.jokes
 
+import android.content.Intent
 import android.os.Bundle
 import android.util.Log
 import android.view.View
 import android.widget.Toast
 import androidx.appcompat.app.AppCompatActivity
-import com.example.jokes.databinding.ActivityMainBinding
 import kotlinx.android.synthetic.main.activity_main.*
 import retrofit2.Call
 import retrofit2.Callback
@@ -33,6 +33,10 @@ class MainActivity : AppCompatActivity() {
             progressBar_cyclic.visibility = View.VISIBLE
             getRandomJokes()
         }
+
+        tv_share.setOnClickListener {
+            shareJoke()
+        }
     }
 
     private fun getRandomJokes(){
@@ -59,6 +63,18 @@ class MainActivity : AppCompatActivity() {
             }
 
         })
+    }
+
+    private fun shareJoke() {
+        val setup: String = tv_setUp.text.toString()
+        val punchLine: String = tv_punchLine.text.toString()
+        val joke: String = setup +"\n"+punchLine
+
+        val shareIntent = Intent()
+        shareIntent.action = Intent.ACTION_SEND
+        shareIntent.putExtra(Intent.EXTRA_TEXT, joke)
+        shareIntent.type = "text/plain"
+        startActivity(Intent.createChooser(shareIntent, "send to"))
     }
 
 
